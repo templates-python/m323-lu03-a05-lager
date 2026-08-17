@@ -1,3 +1,8 @@
+"""Verwaltung von Lagerbeständen.
+
+Aufgabenstellung: https://wiki.bzz.ch/modul/m323/learningunits/lu03/aufgaben/lager
+"""
+
 def manage_inventory(products, calculation_function, *args):
     """
     Diese Funktion ist eine Higher-Order Funktion, die eine Liste von Produkten und eine Berechnungsfunktion akzeptiert.
@@ -46,7 +51,8 @@ def filter_products_by_stock(products, min_stock):
     werden in die Ergebnisliste aufgenommen.
 
     :param products: Liste von Produkten, jedes Produkt ist ein Dictionary mit 'name', 'price' und 'stock'
-    :param min_stock: Die minimale Bestandsmenge, die ein Produkt haben muss, um in die Ergebnisliste aufgenommen zu werden
+    :param min_stock: Die minimale Bestandsmenge, die ein Produkt haben muss, um in die Ergebnisliste aufgenommen zu
+    werden
     :return: Liste der gefilterten Produkte
     """
     filtered_products = []
@@ -57,8 +63,9 @@ def filter_products_by_stock(products, min_stock):
 
 
 if __name__ == '__main__':
-    # Produktliste: Eine Liste von Produkten, wobei jedes Produkt ein Dictionary mit den Eigenschaften 'name', 'price' und 'stock' ist.
-    products = [
+    # Produktliste: Eine Liste von Produkten, wobei jedes Produkt ein Dictionary mit den Eigenschaften 'name', 'price'
+    # und 'stock' ist.
+    demo_products = [
         {'name': 'Laptop', 'price': 800, 'stock': 5},
         {'name': 'Smartphone', 'price': 500, 'stock': 10},
         {'name': 'Headphones', 'price': 50, 'stock': 20},
@@ -82,22 +89,22 @@ if __name__ == '__main__':
     ]
 
     # Test: Berechnung des durchschnittlichen Preises
-    average_price = manage_inventory(products, calculate_average_price)
-    print(f'Durchschnittlicher Preis der Produkte: {average_price:.2f}€')
+    demo_average_price = manage_inventory(demo_products, calculate_average_price)
+    print(f'Durchschnittlicher Preis der Produkte: {demo_average_price:.2f}€')
 
     # Test: Berechnung des Gesamtwerts
-    total_value = manage_inventory(products, calculate_total_value)
-    print(f'Gesamtwert der Produkte: {total_value}€')
+    demo_total_value = manage_inventory(demo_products, calculate_total_value)
+    print(f'Gesamtwert der Produkte: {demo_total_value}€')
 
     # Test: Filtern von Produkten mit einem minimalen Bestand von 20
-    min_stock = 20
-    filtered_products = manage_inventory(products, filter_products_by_stock, min_stock)
-    print(f'Produkte mit einem Bestand von mindestens {min_stock}:')
-    for product in filtered_products:
-        print(product)
+    demo_min_stock = 20
+    demo_filtered_products = manage_inventory(demo_products, filter_products_by_stock, demo_min_stock)
+    print(f'Produkte mit einem Bestand von mindestens {demo_min_stock}:')
+    for demo_product in demo_filtered_products:
+        print(demo_product)
 
     average_price_min_stock = manage_inventory(
-        filtered_products, calculate_average_price
+        demo_filtered_products, calculate_average_price
     )
     print(
         f'Durchschnittlicher Preis der Produkte wo min_stock=20: {average_price_min_stock:.2f}€'
