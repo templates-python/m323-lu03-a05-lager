@@ -1,3 +1,8 @@
+"""Verwaltung von Lagerbeständen.
+
+Aufgabenstellung: https://wiki.bzz.ch/modul/m323/learningunits/lu03/aufgaben/lager
+"""
+
 def manage_inventory(products, calculation_function, *args):
     """
     Diese Funktion ist eine Higher-Order Funktion, die eine Liste von Produkten und eine Berechnungsfunktion akzeptiert.
