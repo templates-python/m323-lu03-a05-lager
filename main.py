@@ -43,14 +43,16 @@ def filter_products_by_stock(products, min_stock):
     werden in die Ergebnisliste aufgenommen.
 
     :param products: Liste von Produkten, jedes Produkt ist ein Dictionary mit 'name', 'price' und 'stock'
-    :param min_stock: Die minimale Bestandsmenge, die ein Produkt haben muss, um in die Ergebnisliste aufgenommen zu werden
+    :param min_stock: Die minimale Bestandsmenge, die ein Produkt haben muss, um in die Ergebnisliste aufgenommen zu
+    werden
     :return: Liste der gefilterten Produkte
     """
 
 
 if __name__ == '__main__':
-    # Produktliste: Eine Liste von Produkten, wobei jedes Produkt ein Dictionary mit den Eigenschaften 'name', 'price' und 'stock' ist.
-    products = [
+    # Produktliste: Eine Liste von Produkten, wobei jedes Produkt ein Dictionary mit den Eigenschaften 'name', 'price'
+    # und 'stock' ist.
+    demo_products = [
         {'name': 'Laptop', 'price': 800, 'stock': 5},
         {'name': 'Smartphone', 'price': 500, 'stock': 10},
         {'name': 'Headphones', 'price': 50, 'stock': 20},
@@ -74,17 +76,17 @@ if __name__ == '__main__':
     ]
 
     # Test: Berechnung des durchschnittlichen Preises
-    average_price = manage_inventory(products, calculate_average_price)
+    average_price = manage_inventory(demo_products, calculate_average_price)
     print(f'Durchschnittlicher Preis der Produkte: {average_price:.2f}€')
 
     # Test: Berechnung des Gesamtwerts
-    total_value = manage_inventory(products, calculate_total_value)
+    total_value = manage_inventory(demo_products, calculate_total_value)
     print(f'Gesamtwert der Produkte: {total_value}€')
 
     # Test: Filtern von Produkten mit einem minimalen Bestand von 20
-    min_stock = 20
-    filtered_products = manage_inventory(products, filter_products_by_stock, min_stock)
-    print(f'Produkte mit einem Bestand von mindestens {min_stock}:')
+    demo_min_stock = 20
+    filtered_products = manage_inventory(demo_products, filter_products_by_stock, demo_min_stock)
+    print(f'Produkte mit einem Bestand von mindestens {demo_min_stock}:')
     for product in filtered_products:
         print(product)
 
